@@ -1,9 +1,10 @@
-import java.util.*;
-public class printDecreasing {
-    public static void dec(int n){
+import java.util.Scanner;
+
+public class printIncreasingAfterCalls {
+ public static void dec(int n){
         if(n==0){return;}
+        dec(n-1);
         System.out.println(n);
-        dec(--n);
     }
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
