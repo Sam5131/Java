@@ -50,3 +50,13 @@ public class MergeSort {
     }
 
 }
+
+//Algorithm:
+//1. Divide the array into two halves.
+//2. Recursively sort the two halves.
+//3. Merge the two halves.
+//4. The base case of the recursion is when the array has less than or equal to one element.
+//5. The merge step involves merging two sorted arrays into a single sorted array.
+//6. The time complexity of the merge sort algorithm is O(n log n) in the average and worst case.
+//7. The space complexity of the merge sort algorithm is O(n) in the worst case.
+//8. The merge sort algorithm is a stable sorting algorithm.

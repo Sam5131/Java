@@ -54,3 +54,11 @@ public class quickSort {
         print(arr);
     }
 }
+
+//Algorithm:
+//1. Choose a pivot element.
+//2. Partition the array such that all elements less than the pivot are on the left side and all elements greater than the pivot are on the right side.
+//3. Recursively sort the left and right subarrays.
+//4. The base case of the recursion is when the array has less than or equal to one element.
+//5. The time complexity of the quicksort algorithm is O(n log n) in the average and best case and O(n^2) in the worst case.
+//6. The space complexity of the quicksort algorithm is O(log n) in the average and best case and O(n) in the worst case.

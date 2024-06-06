@@ -65,3 +65,15 @@ public class InversionCount {
             System.out.println(count);
         }
 }
+
+//Algorithm:
+//1. Divide the array into two halves.
+//2. Recursively sort the two halves.
+//3. Merge the two halves.
+//4. The base case of the recursion is when the array has less than or equal to one element.
+//5. The merge step involves merging two sorted arrays into a single sorted array.
+//6. The time complexity of the merge sort algorithm is O(n log n) in the average and worst case.
+//7. The inversion count is the number of inversions in the array, where an inversion is defined as a pair of elements (arr[i], arr[j]) such that i < j and arr[i] > arr[j].
+//8. The inversion count can be calculated by modifying the merge step of the merge sort algorithm to count the number of inversions.
+//9. The time complexity of the inversion count algorithm is O(n log n) in the average and worst case.
+//10. The space complexity of the inversion count algorithm is O(n) in the worst case.
