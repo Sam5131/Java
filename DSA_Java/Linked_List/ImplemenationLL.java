@@ -62,9 +62,23 @@ class SLL { // Singly Linked List
         System.out.println("Lenght of Linked List: " + size);
     }
 
-    int get(int idx) throws Error{   // Method to get value of a desired index
-        if(idx==size-1){    // index is of the last element
+    int get(int idx) throws Error { // Method to get value of a desired index
+        if (idx == size - 1) { // index is of the last element
             return tail.val;
+        }
+        if (idx >= size || idx < 0) {
+            throw new Error("Invalid Index");
+        }
+        Node temp = head;
+        for (int i = 1; i <= idx; i++) {
+            temp = temp.next;
+        }
+        return temp.val;
+    }
+
+    void set(int idx,int val) throws Error{ // Method to set a element to a particular index
+        if(idx==size-1){
+            tail.val=val;
         }
         if(idx>=size||idx<0){
             throw new Error("Invalid Index");
@@ -73,7 +87,7 @@ class SLL { // Singly Linked List
         for(int i=1;i<=idx;i++){
             temp=temp.next;
         }
-        return temp.val;
+        temp.val=val;
     }
 }
 
@@ -94,5 +108,8 @@ public class ImplemenationLL {
         list.display();
 
         System.out.println(list.get(3));
+
+        list.set(2,45);
+        list.display();
     }
 }
