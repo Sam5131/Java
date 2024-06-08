@@ -61,6 +61,20 @@ class SLL { // Singly Linked List
     void size() { // display size of the linked list as a method
         System.out.println("Lenght of Linked List: " + size);
     }
+
+    int get(int idx) throws Error{   // Method to get value of a desired index
+        if(idx==size-1){    // index is of the last element
+            return tail.val;
+        }
+        if(idx>=size||idx<0){
+            throw new Error("Invalid Index");
+        }
+        Node temp=head;
+        for(int i=1;i<=idx;i++){
+            temp=temp.next;
+        }
+        return temp.val;
+    }
 }
 
 public class ImplemenationLL {
@@ -78,5 +92,7 @@ public class ImplemenationLL {
 
         list.InsertAtIndex(2, 90);
         list.display();
+
+        System.out.println(list.get(3));
     }
 }
