@@ -14,6 +14,30 @@ class SLL { // Singly Linked List
         size++;
     }
 
+    void InsertAtIndex(int idx, int val) { // Inseting an element at the desired index
+        Node temp = new Node(val);
+        if (idx == 0) { // if desired index is zero
+            InsertAtHead(val);
+            return;
+        }
+        if (idx == size) { // if desried index is the size of the LL
+            InsertAtEnd(val);
+            return;
+        }
+        if (idx > size) {
+            System.out.println("Invalid Index!");
+            return;
+        }
+        Node x = head;
+        for (int i = 1; i <= idx - 1; i++) { // bring the index to the required position
+            x = x.next;
+        }
+        // Insertion part
+        temp.next = x.next;
+        x.next = temp;
+        size++;
+    }
+
     void InsertAtEnd(int val) { // Insert an element at the end of the linked list
         Node temp = new Node(val);
         if (head == null) { // Linked List is empty initially
@@ -50,6 +74,9 @@ public class ImplemenationLL {
         list.size(); // display the size
 
         list.InsertAtHead(5); // insert a node at the beginning of a linked list
+        list.display();
+
+        list.InsertAtIndex(2, 90);
         list.display();
     }
 }
