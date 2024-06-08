@@ -16,6 +16,14 @@ public class ListNodeClass {
         }
     }
 
+
+    public static void display(Node head){
+        if(head==null){return;}
+        System.out.println(head.val);   //a->b->c
+        display(head.next);
+        // System.out.println(head.val);   //c->b->a
+    }
+
     public static void main(String[] args) {
         Node a = new Node(20);
         Node b = new Node(40);
@@ -27,5 +35,6 @@ public class ListNodeClass {
         // System.out.println(a.next.val);
         // System.out.println(a.next.next.val);
         print(a);
+        display(a);
     }
 }
