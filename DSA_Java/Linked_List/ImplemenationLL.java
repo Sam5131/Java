@@ -76,18 +76,44 @@ class SLL { // Singly Linked List
         return temp.val;
     }
 
-    void set(int idx,int val) throws Error{ // Method to set a element to a particular index
-        if(idx==size-1){
-            tail.val=val;
+    void set(int idx, int val) throws Error { // Method to set a element to a particular index
+        if (idx == size - 1) {
+            tail.val = val;
         }
-        if(idx>=size||idx<0){
+        if (idx >= size || idx < 0) {
             throw new Error("Invalid Index");
         }
-        Node temp=head;
-        for(int i=1;i<=idx;i++){
-            temp=temp.next;
+        Node temp = head;
+        for (int i = 1; i <= idx; i++) {
+            temp = temp.next;
         }
-        temp.val=val;
+        temp.val = val;
+    }
+
+    void deleteAtHead() throws Error { // Method to delete element from the head
+        if (head == null) {
+            throw new Error("List already Empty");
+        }
+        head = head.next;
+        size--;
+    }
+
+    void deleteAtIndex(int idx) throws Error { // Method to delete element from a desired index
+        if (idx == 0) { // if index is zero
+            deleteAtHead();
+        }
+        if (idx < 0 || idx >= size) { // if index is invalid
+            throw new Error("Invalid Index");
+        }
+        Node temp = head;
+        for (int i = 1; i <= idx - 1; i++) {
+            temp = temp.next;
+        }
+        if (temp.next == tail) {
+            tail = temp;
+        }
+        temp.next = temp.next.next;
+        size--;
     }
 }
 
@@ -109,7 +135,10 @@ public class ImplemenationLL {
 
         System.out.println(list.get(3));
 
-        list.set(2,45);
+        list.set(2, 45);
+        list.display();
+
+        list.deleteAtIndex(2);
         list.display();
     }
 }
