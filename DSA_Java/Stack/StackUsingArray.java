@@ -1,4 +1,4 @@
-class Stack {
+class stack {
     int[] arr = new int[5];
     int idx = 0;
 
@@ -56,7 +56,7 @@ class Stack {
 
 public class StackUsingArray {
     public static void main(String[] args) {
-        Stack st = new Stack();
+        stack st = new stack();
         st.push(10);
         st.push(20);
         st.push(30);
