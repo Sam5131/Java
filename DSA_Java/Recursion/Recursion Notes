@@ -1,0 +1,8 @@
+Program: FunctionCalls.java
+The call stack contains [main,apple,banana,mango]
+main executes to print
+mango executes to print
+banana executes to print
+apple executes to print
+mango executes to print
+main executes to print
