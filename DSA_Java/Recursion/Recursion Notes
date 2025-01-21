@@ -11,6 +11,6 @@ Program: Factorial.java
 the integer n calls the factorial function for n-1
 the integer n-1 calls the factorial function for n-2
 in this manner the calls are made till 1 or 0
-where base case is hit and 1 is returned
+where base case is hit and 1 is returned and next lines aren't executed
 it is then multiplied by the nth level n * fact(n-1)
 then returned to the main function for display
