@@ -14,3 +14,52 @@ in this manner the calls are made till 1 or 0
 where base case is hit and 1 is returned and next lines aren't executed
 it is then multiplied by the nth level n * fact(n-1)
 then returned to the main function for display
+
+Program: SubsetsSum.java
+initial call from main fn (0, {5,2,1}, 0),
+1. recursive call:
+    digit = 5
+    initial call from 1. RC fn (1, {5,2,1}, 0)
+    1.1 RC:
+        digit = 2
+        initial call from 1.1 RC fn (2,{5,2,1},0)
+        1.1.1 RC:
+            digit = 1
+            initial call form 1.1.1 RC fn (3,{5,2,1},0)
+            but i == arr.length i.e. 3
+            PRINT 0
+        1.1.2 RC:
+            digit = 1
+            call from 1.1.2 RC (3,{5,2,1}, 0 + 1)
+            i == arr.length
+            PRINT 1
+    1.2 RC:
+        digit = 2
+        call from 1.2 RC fn (2, {5, 2, 1}, 0 + 2)
+        1.2.1 RC:
+            digit = 1
+            call from 1.2.1 RC fn (3, {5,2,1}, 0 + 2)
+            i == arr.length
+            PRINT 2
+        1.2.2 RC:
+            digit = 1
+            call from 1.2.2 RC fn (3, {5,2,1}, 0 + 2 + 1)
+            PRINT 3
+
+Similarly in the recursive tree:
+
+SumSubsets(0, {5, 2, 1}, 0)
+├── Exclude 5: SumSubsets(1, {5, 2, 1}, 0)
+│   ├── Exclude 2: SumSubsets(2, {5, 2, 1}, 0)
+│   │   ├── Exclude 1: SumSubsets(3, {5, 2, 1}, 0) → Prints 0
+│   │   └── Include 1: SumSubsets(3, {5, 2, 1}, 1) → Prints 1
+│   └── Include 2: SumSubsets(2, {5, 2, 1}, 2)
+│       ├── Exclude 1: SumSubsets(3, {5, 2, 1}, 2) → Prints 2
+│       └── Include 1: SumSubsets(3, {5, 2, 1}, 3) → Prints 3
+└── Include 5: SumSubsets(1, {5, 2, 1}, 5)
+    ├── Exclude 2: SumSubsets(2, {5, 2, 1}, 5)
+    │   ├── Exclude 1: SumSubsets(3, {5, 2, 1}, 5) → Prints 5
+    │   └── Include 1: SumSubsets(3, {5, 2, 1}, 6) → Prints 6
+    └── Include 2: SumSubsets(2, {5, 2, 1}, 7)
+        ├── Exclude 1: SumSubsets(3, {5, 2, 1}, 7) → Prints 7
+        └── Include 1: SumSubsets(3, {5, 2, 1}, 8) → Prints 8
