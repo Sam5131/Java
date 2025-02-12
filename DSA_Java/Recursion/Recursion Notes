@@ -108,3 +108,17 @@ Recursive call (5, 2) when m = 3 which receives 25 and prints (5 * 25)
 Recursive call (5, 1) when m = 2 which receives 5 and prints (5 * 5)
 Recursive call (5, 0) when m = 1 which receives 1 and prints (5 * 1)
 Base case hit m = 0 return 1
+
+Program: powerLog.java
+Input base number n and exponential number m is taken.
+exponential function is called by the main function.
+then in the function exponential, recursive call is given to exponential(n, m/2)
+then in the call stack [(n, m),(n, m/2),(n, m/4),(n, 1),(n, 0)]
+then if m is even we square the ans of exponential
+if odd then we square the ans of exponential and multiply n
+For example: Input n = 5 and m = 4
+first call exponential from main: exponential(5, 4)
+In exponential function:
+Recursive call (5, 2) when m = 4
+Recursive call (5, 1) when m = 2
+Recursive call (5, 0) when m = 1 this hits base case and returns 1
