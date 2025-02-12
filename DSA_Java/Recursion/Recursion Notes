@@ -80,3 +80,17 @@ Recursive call (n: 2,s: 3+9) when n = 3
 Recursive call (n: 1,s: 2+12) when n = 2
 Recursive call (n: 0,s: 1+14) when n = 1
 Recursive call hits base call n = 0 and prints s = 15
+
+Program: sumReturn.java
+Input n is taken.
+sum function is called by the main function.
+then in the function sum, recursive call is given to sum(n-1)
+then in the call stack [n,n-1,n-2,n-3,...1,0]
+For example: with input = 5
+first call sum from main: sum(5)
+In sum function:
+Recursive call (4) when n = 5 which receives 10 and prints (5 + 10)
+Recursive call (3) when n = 4 which receives 6 and prints (4 + 6)
+Recursive call (2) when n = 3 which receives 3 and prints (3 + 3)
+Recursive call (1) when n = 2 which receives 1 and prints (2 + 1)
+Recursive call for n = 1: returns and prints 1
