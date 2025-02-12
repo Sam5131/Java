@@ -1,21 +1,23 @@
 import java.util.Scanner;
 
 public class powerLog {
-        public static int exponential(int n,int m) {
-        if(n==0&&m==0){
+    public static int exponential(int n, int m) {
+        if (n == 0 && m == 0) {
             System.out.println("Not defined");
             return -1;
         }
         if (m == 0) {
             return 1;
         } // base case
-        int ans=exponential(n, m/2);
-        if(m%2==0){
-            return ans*ans;
+        int HalfExp = exponential(n, m / 2);
+        int ans;
+        if (m % 2 == 0) {
+            ans = HalfExp * HalfExp;
+        } else {
+            ans = HalfExp * HalfExp * n;
         }
-        else{
-            return ans*ans*n;
-        }
+        System.out.println(n + "^" + m + " = " + ans);
+        return ans;
     }
 
     public static void main(String[] args) {
@@ -24,7 +26,7 @@ public class powerLog {
         int n = sc.nextInt();
         System.out.println("Enter the exponential number");
         int m = sc.nextInt();
-        System.out.println(exponential(n,m));
+        System.out.println("The answer is: "+exponential(n, m));
         sc.close();
     }
 }
