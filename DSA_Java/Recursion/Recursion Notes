@@ -94,3 +94,17 @@ Recursive call (3) when n = 4 which receives 6 and prints (4 + 6)
 Recursive call (2) when n = 3 which receives 3 and prints (3 + 3)
 Recursive call (1) when n = 2 which receives 1 and prints (2 + 1)
 Recursive call for n = 1: returns and prints 1
+
+Program: power.java
+Input base number n and exponential number b is taken.
+exponential function is called by the main function
+then in the function exponential, recursive call is given to exponential(n, m-1)
+then in the call stack [(n,m),(n,m-1),(n,m-2),(n,m-3),...(n,0)]
+For example: Input n = 5 and m = 4
+first call exponential from main: exponential(5, 4)
+In exponential function:
+Recursive call (5, 3) when m = 4 which receives 125 and prints (5 * 125)
+Recursive call (5, 2) when m = 3 which receives 25 and prints (5 * 25)
+Recursive call (5, 1) when m = 2 which receives 5 and prints (5 * 5)
+Recursive call (5, 0) when m = 1 which receives 1 and prints (5 * 1)
+Base case hit m = 0 return 1
