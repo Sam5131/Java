@@ -63,3 +63,20 @@ SumSubsets(0, {5, 2, 1}, 0)
     └── Include 2: SumSubsets(2, {5, 2, 1}, 7)
         ├── Exclude 1: SumSubsets(3, {5, 2, 1}, 7) → Prints 7
         └── Include 1: SumSubsets(3, {5, 2, 1}, 8) → Prints 8
+
+
+Program: sumParameterized.java
+Input n is taken.
+sum call is given with parameter n and sum variable s.
+then in the function sum, recursive call is given to sum(n-1,s+n)
+then in the call stack [(n,s),(n-1,(n+s)),(n-2,(n+s)+n-1),...(0,s+(n+n-1+n-2+...0))]
+For example: with input 5:
+n = 5, s = 0
+First call sum from main: sum (n:5, s:0)
+In sum function:
+Recursive call (n: 4,s: 5+0) when n = 5
+Recursive call (n: 3,s: 4+5) when n = 4
+Recursive call (n: 2,s: 3+9) when n = 3
+Recursive call (n: 1,s: 2+12) when n = 2
+Recursive call (n: 0,s: 1+14) when n = 1
+Recursive call hits base call n = 0 and prints s = 15
