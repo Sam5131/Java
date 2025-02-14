@@ -140,3 +140,18 @@ fibo(3) = fibo(2) + fibo(1) = 1 + 1
 fibo(2) = fibo(1) + fibo(0) = 1 + 0
 fibo(1) = 1
 fibo(0) = 0
+
+Program: StairPath.java
+Input n is taken.
+StairPath function is called by the main function.
+then in the StairPath function, recursive call is given to StairPath(n-1) and StairPath(n-2)
+then in the call stack [(n),(n-1),(n-2),(n-3),...0,...(n-2),(n-3)...1]
+first all the left child calls are made till base case is reached.
+then the right child calls are made till base case is reached.
+For example:
+first call StairPath from main: StairPath(5)
+StairPath(5) = StairPath(4) + StairPath(3) = 5 + 3
+StairPath(4) = StairPath(3) + StairPath(2) = 3 + 2
+StairPath(3) = StairPath(2) + StairPath(1) = 2 + 1
+StairPath(2) = 2
+StairPath(1) = 1
