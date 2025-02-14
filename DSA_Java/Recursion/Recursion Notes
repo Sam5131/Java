@@ -122,3 +122,21 @@ In exponential function:
 Recursive call (5, 2) when m = 4
 Recursive call (5, 1) when m = 2
 Recursive call (5, 0) when m = 1 this hits base case and returns 1
+
+Program: nthFibonacci.java
+Input n is taken.
+fibo function is called by the main function.
+then in the fibo function, recursive call is given to fibo(n-1) and fibo(n-2)
+then in call stack [(n),(n-1),(n-2),(n-3)...(0),(n-2),(n-3),...(1)]
+first all the left child calls are made till base case is reached
+then the right child calls are made till the base case is reached
+then both the numbers are added to get the final answer of the parent
+this is called Euler's Tour tree.
+For example: Input n = 5
+first call fibo from main: fibo(5)
+fibo(5) = fibo(4) + fibo(3) = 3 + 2
+fibo(4) = fibo(3) + fibo(2) = 2 + fibo(1) + fibo(0) = 2 + 1 + 0
+fibo(3) = fibo(2) + fibo(1) = 1 + 1
+fibo(2) = fibo(1) + fibo(0) = 1 + 0
+fibo(1) = 1
+fibo(0) = 0
