@@ -155,3 +155,22 @@ StairPath(4) = StairPath(3) + StairPath(2) = 3 + 2
 StairPath(3) = StairPath(2) + StairPath(1) = 2 + 1
 StairPath(2) = 2
 StairPath(1) = 1
+
+Program: mazePath.java
+Input n is taken as row, m is taken as columns
+maze function is called by the main function
+then in the maze function, recursive call is given to maze(n,m-1) and maze(n-1,m)
+maze(n,m-1) calculate the rightWays meaning you are moving right
+maze(n-1,m) calculate the downWays meaning you are moving down
+then the call stack [(n,m),(n,m-1),(n,m-2),...(n,1),(n-1,m),(n-2,m),...(1,m)]
+For example: Input n = 3 and m = 3
+first call Maze from main: maze(3,3)
+maze(3,3) = maze(3,2) + maze(2,3) = 3 + 3 = 6
+maze(3,2) = maze(3,1) + maze(2,2) = 1 + 2 = 3
+maze(2,2) = maze(1,2) + maze(2,1) = 1 + 1 = 2
+maze(3,1) = 1
+maze(2,1) = 1
+maze(2,3) = maze(2,2) + maze(1,3) = 2 + 1 = 3
+maze(2,2) = maze(2,1) + maze(1,2) = 1 + 1 = 2
+maze(2,1) = 1
+maze(1,2) = 1
