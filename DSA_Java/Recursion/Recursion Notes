@@ -174,3 +174,18 @@ maze(2,3) = maze(2,2) + maze(1,3) = 2 + 1 = 3
 maze(2,2) = maze(2,1) + maze(1,2) = 1 + 1 = 2
 maze(2,1) = 1
 maze(1,2) = 1
+
+Program: preInPost.java
+Pre: statements before the recursive calls
+In: statements in between the two recursive calls
+Post: statements after the two recursive calls
+Input n is given, pip is called by the main function with n
+then, in the pip(n) function first print n and call pip(n-1)
+then, in the pip(n-1) function first print n - 1 and call pip(n-2)
+similarly till pip(0).
+then the call stack [(n),(n-1),(n-2),...(1),(0),(1),(0),(1),(0),...(n-2),(n-1),(n)]
+For example: Input n = 2
+first call pip from main: pip(2)
+pip(2) : print(2) + pip(1) + print(2) + pip(1) + print(2) : 2 1 1 1 2 1 1 1 2 1 1 1
+pip(1) : print(1) + pip(0) + print(1) + pip(0) + print(1) : 1 1 1
+pip(0) : base case return
