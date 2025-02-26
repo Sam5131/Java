@@ -189,3 +189,16 @@ first call pip from main: pip(2)
 pip(2) : print(2) + pip(1) + print(2) + pip(1) + print(2) : 2 1 1 1 2 1 1 1 2 1 1 1
 pip(1) : print(1) + pip(0) + print(1) + pip(0) + print(1) : 1 1 1
 pip(0) : base case return
+
+Program: arrayTraversal.java
+main function calls print function
+in print function arr[i] i.e. arr[0] i.e 1
+then calls print(i+1,arr)
+then call stack [(0,arr),(1,arr),(2,arr),...,(n,arr)]
+For example: Input [1,2,3,4,5]
+print(0) : 1
+print(1) : 2
+print(2) : 3
+print(3) : 4
+print(4) : 5
+print(5) : base case return
