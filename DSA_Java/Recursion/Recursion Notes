@@ -257,3 +257,24 @@ call stack is [(a,b),((b%a),a),(((b%a)%a),a),(0,a)]
 For example: gcd(12,60)
 gcd(60%12,12) -> gcd(0,12) -> 12
 gcd(0,12) -> 12
+
+Program: binaryStrings.java
+input n is given.
+For example: n = 2
+printStrings function is called by the main function
+In the printStrings function:
+printStrings("",2) { m == 0 or s.charAt(m-1) == '0'}
+m = 0
+    printStrings(0,2)
+        m = 1
+        printStrings(00,2)
+            m = 2
+            Base case reached m == n -> print 00
+        printStrings(01,2)
+            m = 2
+            Base case reached m == n -> print 01
+    printStrings(1,2)
+        m = 1
+        printStrings(10,2)
+            m = 2
+            Base case reached m == n -> print 10
