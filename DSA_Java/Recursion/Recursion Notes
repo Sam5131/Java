@@ -202,3 +202,16 @@ print(2) : 3
 print(3) : 4
 print(4) : 5
 print(5) : base case return
+
+Program: stringTraversal.java
+1. input s string is taken here.: Syamantak Paul
+    print function is called by the main function print(0,s)
+    In the the print function:
+    print(0,s) -> prints charAt(0) i.e. S
+    then calls print(1,s) -> prints charAt(1) i.e. y
+    till base case i == s.length() is reached.
+2. skip function is then called by the main function
+    skip(0,s,ans) where ans is an empty string
+    skip function skips a particular character 'a' and add the other character in the String. skip(0,s,ans) -> S
+    then calls skip(1, s, ans) -> Sy
+    till the base case i == s.length is reached and the ans is printed.
