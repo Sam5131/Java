@@ -247,3 +247,13 @@ printSubsets(0,abca, )
                 printSubset(4,abca,a) -> base case reached print "a"
     printSubset(1,abca,"")
     Similarly as the above.
+
+Program gcd.java
+input a and b is taken
+gcdRec(a,b) call is given in the main function
+Euclidean Algorithm is been used in the program
+in the gcd function recursive call is given to gcd(b%a,a)
+call stack is [(a,b),((b%a),a),(((b%a)%a),a),(0,a)]
+For example: gcd(12,60)
+gcd(60%12,12) -> gcd(0,12) -> 12
+gcd(0,12) -> 12
