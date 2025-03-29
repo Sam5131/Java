@@ -215,3 +215,35 @@ Program: stringTraversal.java
     skip function skips a particular character 'a' and add the other character in the String. skip(0,s,ans) -> S
     then calls skip(1, s, ans) -> Sy
     till the base case i == s.length is reached and the ans is printed.
+
+Program: subsets.java
+Input is taken S here.: abca
+printSubsets function is called printSubsets(0,s,ans)
+in printSubsets(i,s,ans)
+The Recursive Tree:
+printSubsets(0,abca, )
+    ch = charAt(0) -> a
+    printSubsets(1,abca,a)
+        ch=charAt(1)->b
+        printSubset(2,abca,ab)
+            ch = charAt(2)->c
+            printSubset(3,abca,abc)
+                ch = charAt(3)->a
+                printSubset(4,abca,abca) -> base case reached print "abca"
+                printSubset(4,abca,abc) -> base case reached print "abc"
+            printSubset(3,abca,ab)
+                ch = charAt(3)->a
+                printSubset(4,abca,aba) -> base case reached print "aba"
+                printSubset(4,abca,ab) -> base case reached print "ab"
+        printSubset(2,abca,a)
+            ch = charAt(2) -> c
+            printSubset(3,abca,ac)
+                ch = charAt(3) -> a
+                printSubset(4,abca,aca) -> base case reached print "aca"
+                printSubset(4,abca,ac) -> base case reached print "ac"
+            printSubset(3,abca, a)
+                charAt(3)->a
+                printSubset(4,abca,aa) -> base case reached print "aa"
+                printSubset(4,abca,a) -> base case reached print "a"
+    printSubset(1,abca,"")
+    Similarly as the above.
