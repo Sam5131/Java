@@ -314,3 +314,24 @@ findSubsets(1, arr, <>,<>):
             subsets.add(<1>)
             subsets = [[],[2],[1]]
 Similarly we can get all the elements
+
+Program: Combinations.java
+Input array is given: 2,3,6,7
+input target is: 7
+findCombinations(0,arr,target,blank ans,blank ds)
+    if(arr[0]=2<=7)
+        ds.add(2)
+        findCombinations(0,arr,7-2=5,blank ans,<2>):
+            if(2<=5)
+            ds.add(2)
+            findCombinations(0,arr,5-2=3,blank ans,<2,2>):
+                if(2<=3):
+                ds.add(2)
+                findCom(0,arr,3-2=1,blank ans,<2,2,2>):
+                    if(2<=1):
+                    findcombi(1,arr,1,blank ans,<2,2,2>):
+                        if(3<=1):
+                        findCombin(2,arr,1,blank ans,<2,2,2>):
+                            if(6<=1):
+                            goes on till the end of the array
+if no solutions then it backtracks one element at a time and remove that element from the ds.
