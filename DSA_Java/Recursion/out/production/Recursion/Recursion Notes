@@ -1,0 +1,337 @@
+Program: FunctionCalls.java
+The call stack contains [main,apple,banana,mango]
+main executes to print
+mango executes to print
+banana executes to print
+apple executes to print
+mango executes to print
+main executes to print
+
+Program: Factorial.java
+the integer n calls the factorial function for n-1
+the integer n-1 calls the factorial function for n-2
+in this manner the calls are made till 1 or 0
+where base case is hit and 1 is returned and next lines aren't executed
+it is then multiplied by the nth level n * fact(n-1)
+then returned to the main function for display
+
+Program: SubsetsSum.java
+initial call from main fn (0, {5,2,1}, 0),
+1. recursive call:
+    digit = 5
+    initial call from 1. RC fn (1, {5,2,1}, 0)
+    1.1 RC:
+        digit = 2
+        initial call from 1.1 RC fn (2,{5,2,1},0)
+        1.1.1 RC:
+            digit = 1
+            initial call form 1.1.1 RC fn (3,{5,2,1},0)
+            but i == arr.length i.e. 3
+            PRINT 0
+        1.1.2 RC:
+            digit = 1
+            call from 1.1.2 RC (3,{5,2,1}, 0 + 1)
+            i == arr.length
+            PRINT 1
+    1.2 RC:
+        digit = 2
+        call from 1.2 RC fn (2, {5, 2, 1}, 0 + 2)
+        1.2.1 RC:
+            digit = 1
+            call from 1.2.1 RC fn (3, {5,2,1}, 0 + 2)
+            i == arr.length
+            PRINT 2
+        1.2.2 RC:
+            digit = 1
+            call from 1.2.2 RC fn (3, {5,2,1}, 0 + 2 + 1)
+            PRINT 3
+
+Similarly in the recursive tree:
+
+SumSubsets(0, {5, 2, 1}, 0)
+├── Exclude 5: SumSubsets(1, {5, 2, 1}, 0)
+│   ├── Exclude 2: SumSubsets(2, {5, 2, 1}, 0)
+│   │   ├── Exclude 1: SumSubsets(3, {5, 2, 1}, 0) → Prints 0
+│   │   └── Include 1: SumSubsets(3, {5, 2, 1}, 1) → Prints 1
+│   └── Include 2: SumSubsets(2, {5, 2, 1}, 2)
+│       ├── Exclude 1: SumSubsets(3, {5, 2, 1}, 2) → Prints 2
+│       └── Include 1: SumSubsets(3, {5, 2, 1}, 3) → Prints 3
+└── Include 5: SumSubsets(1, {5, 2, 1}, 5)
+    ├── Exclude 2: SumSubsets(2, {5, 2, 1}, 5)
+    │   ├── Exclude 1: SumSubsets(3, {5, 2, 1}, 5) → Prints 5
+    │   └── Include 1: SumSubsets(3, {5, 2, 1}, 6) → Prints 6
+    └── Include 2: SumSubsets(2, {5, 2, 1}, 7)
+        ├── Exclude 1: SumSubsets(3, {5, 2, 1}, 7) → Prints 7
+        └── Include 1: SumSubsets(3, {5, 2, 1}, 8) → Prints 8
+
+
+Program: sumParameterized.java
+Input n is taken.
+sum call is given with parameter n and sum variable s.
+then in the function sum, recursive call is given to sum(n-1,s+n)
+then in the call stack [(n,s),(n-1,(n+s)),(n-2,(n+s)+n-1),...(0,s+(n+n-1+n-2+...0))]
+For example: with input 5:
+n = 5, s = 0
+First call sum from main: sum (n:5, s:0)
+In sum function:
+Recursive call (n: 4,s: 5+0) when n = 5
+Recursive call (n: 3,s: 4+5) when n = 4
+Recursive call (n: 2,s: 3+9) when n = 3
+Recursive call (n: 1,s: 2+12) when n = 2
+Recursive call (n: 0,s: 1+14) when n = 1
+Recursive call hits base call n = 0 and prints s = 15
+
+Program: sumReturn.java
+Input n is taken.
+sum function is called by the main function.
+then in the function sum, recursive call is given to sum(n-1)
+then in the call stack [n,n-1,n-2,n-3,...1,0]
+For example: with input = 5
+first call sum from main: sum(5)
+In sum function:
+Recursive call (4) when n = 5 which receives 10 and prints (5 + 10)
+Recursive call (3) when n = 4 which receives 6 and prints (4 + 6)
+Recursive call (2) when n = 3 which receives 3 and prints (3 + 3)
+Recursive call (1) when n = 2 which receives 1 and prints (2 + 1)
+Recursive call for n = 1: returns and prints 1
+
+Program: power.java
+Input base number n and exponential number b is taken.
+exponential function is called by the main function
+then in the function exponential, recursive call is given to exponential(n, m-1)
+then in the call stack [(n,m),(n,m-1),(n,m-2),(n,m-3),...(n,0)]
+For example: Input n = 5 and m = 4
+first call exponential from main: exponential(5, 4)
+In exponential function:
+Recursive call (5, 3) when m = 4 which receives 125 and prints (5 * 125)
+Recursive call (5, 2) when m = 3 which receives 25 and prints (5 * 25)
+Recursive call (5, 1) when m = 2 which receives 5 and prints (5 * 5)
+Recursive call (5, 0) when m = 1 which receives 1 and prints (5 * 1)
+Base case hit m = 0 return 1
+
+Program: powerLog.java
+Input base number n and exponential number m is taken.
+exponential function is called by the main function.
+then in the function exponential, recursive call is given to exponential(n, m/2)
+then in the call stack [(n, m),(n, m/2),(n, m/4),(n, 1),(n, 0)]
+then if m is even we square the ans of exponential
+if odd then we square the ans of exponential and multiply n
+For example: Input n = 5 and m = 4
+first call exponential from main: exponential(5, 4)
+In exponential function:
+Recursive call (5, 2) when m = 4
+Recursive call (5, 1) when m = 2
+Recursive call (5, 0) when m = 1 this hits base case and returns 1
+
+Program: nthFibonacci.java
+Input n is taken.
+fibo function is called by the main function.
+then in the fibo function, recursive call is given to fibo(n-1) and fibo(n-2)
+then in call stack [(n),(n-1),(n-2),(n-3)...(0),(n-2),(n-3),...(1)]
+first all the left child calls are made till base case is reached
+then the right child calls are made till the base case is reached
+then both the numbers are added to get the final answer of the parent
+this is called Euler's Tour tree.
+For example: Input n = 5
+first call fibo from main: fibo(5)
+fibo(5) = fibo(4) + fibo(3) = 3 + 2
+fibo(4) = fibo(3) + fibo(2) = 2 + fibo(1) + fibo(0) = 2 + 1 + 0
+fibo(3) = fibo(2) + fibo(1) = 1 + 1
+fibo(2) = fibo(1) + fibo(0) = 1 + 0
+fibo(1) = 1
+fibo(0) = 0
+
+Program: StairPath.java
+Input n is taken.
+StairPath function is called by the main function.
+then in the StairPath function, recursive call is given to StairPath(n-1) and StairPath(n-2)
+then in the call stack [(n),(n-1),(n-2),(n-3),...0,...(n-2),(n-3)...1]
+first all the left child calls are made till base case is reached.
+then the right child calls are made till base case is reached.
+For example:
+first call StairPath from main: StairPath(5)
+StairPath(5) = StairPath(4) + StairPath(3) = 5 + 3
+StairPath(4) = StairPath(3) + StairPath(2) = 3 + 2
+StairPath(3) = StairPath(2) + StairPath(1) = 2 + 1
+StairPath(2) = 2
+StairPath(1) = 1
+
+Program: mazePath.java
+Input n is taken as row, m is taken as columns
+maze function is called by the main function
+then in the maze function, recursive call is given to maze(n,m-1) and maze(n-1,m)
+maze(n,m-1) calculate the rightWays meaning you are moving right
+maze(n-1,m) calculate the downWays meaning you are moving down
+then the call stack [(n,m),(n,m-1),(n,m-2),...(n,1),(n-1,m),(n-2,m),...(1,m)]
+For example: Input n = 3 and m = 3
+first call Maze from main: maze(3,3)
+maze(3,3) = maze(3,2) + maze(2,3) = 3 + 3 = 6
+maze(3,2) = maze(3,1) + maze(2,2) = 1 + 2 = 3
+maze(2,2) = maze(1,2) + maze(2,1) = 1 + 1 = 2
+maze(3,1) = 1
+maze(2,1) = 1
+maze(2,3) = maze(2,2) + maze(1,3) = 2 + 1 = 3
+maze(2,2) = maze(2,1) + maze(1,2) = 1 + 1 = 2
+maze(2,1) = 1
+maze(1,2) = 1
+
+Program: preInPost.java
+Pre: statements before the recursive calls
+In: statements in between the two recursive calls
+Post: statements after the two recursive calls
+Input n is given, pip is called by the main function with n
+then, in the pip(n) function first print n and call pip(n-1)
+then, in the pip(n-1) function first print n - 1 and call pip(n-2)
+similarly till pip(0).
+then the call stack [(n),(n-1),(n-2),...(1),(0),(1),(0),(1),(0),...(n-2),(n-1),(n)]
+For example: Input n = 2
+first call pip from main: pip(2)
+pip(2) : print(2) + pip(1) + print(2) + pip(1) + print(2) : 2 1 1 1 2 1 1 1 2 1 1 1
+pip(1) : print(1) + pip(0) + print(1) + pip(0) + print(1) : 1 1 1
+pip(0) : base case return
+
+Program: arrayTraversal.java
+main function calls print function
+in print function arr[i] i.e. arr[0] i.e 1
+then calls print(i+1,arr)
+then call stack [(0,arr),(1,arr),(2,arr),...,(n,arr)]
+For example: Input [1,2,3,4,5]
+print(0) : 1
+print(1) : 2
+print(2) : 3
+print(3) : 4
+print(4) : 5
+print(5) : base case return
+
+Program: stringTraversal.java
+1. input s string is taken here.: Syamantak Paul
+    print function is called by the main function print(0,s)
+    In the the print function:
+    print(0,s) -> prints charAt(0) i.e. S
+    then calls print(1,s) -> prints charAt(1) i.e. y
+    till base case i == s.length() is reached.
+2. skip function is then called by the main function
+    skip(0,s,ans) where ans is an empty string
+    skip function skips a particular character 'a' and add the other character in the String. skip(0,s,ans) -> S
+    then calls skip(1, s, ans) -> Sy
+    till the base case i == s.length is reached and the ans is printed.
+
+Program: subsets.java
+Input is taken S here.: abca
+printSubsets function is called printSubsets(0,s,ans)
+in printSubsets(i,s,ans)
+The Recursive Tree:
+printSubsets(0,abca, )
+    ch = charAt(0) -> a
+    printSubsets(1,abca,a)
+        ch=charAt(1)->b
+        printSubset(2,abca,ab)
+            ch = charAt(2)->c
+            printSubset(3,abca,abc)
+                ch = charAt(3)->a
+                printSubset(4,abca,abca) -> base case reached print "abca"
+                printSubset(4,abca,abc) -> base case reached print "abc"
+            printSubset(3,abca,ab)
+                ch = charAt(3)->a
+                printSubset(4,abca,aba) -> base case reached print "aba"
+                printSubset(4,abca,ab) -> base case reached print "ab"
+        printSubset(2,abca,a)
+            ch = charAt(2) -> c
+            printSubset(3,abca,ac)
+                ch = charAt(3) -> a
+                printSubset(4,abca,aca) -> base case reached print "aca"
+                printSubset(4,abca,ac) -> base case reached print "ac"
+            printSubset(3,abca, a)
+                charAt(3)->a
+                printSubset(4,abca,aa) -> base case reached print "aa"
+                printSubset(4,abca,a) -> base case reached print "a"
+    printSubset(1,abca,"")
+    Similarly as the above.
+
+Program gcd.java
+input a and b is taken
+gcdRec(a,b) call is given in the main function
+Euclidean Algorithm is been used in the program
+in the gcd function recursive call is given to gcd(b%a,a)
+call stack is [(a,b),((b%a),a),(((b%a)%a),a),(0,a)]
+For example: gcd(12,60)
+gcd(60%12,12) -> gcd(0,12) -> 12
+gcd(0,12) -> 12
+
+Program: binaryStrings.java
+input n is given.
+For example: n = 2
+printStrings function is called by the main function
+In the printStrings function:
+printStrings("",2) { m == 0 or s.charAt(m-1) == '0'}
+m = 0
+    printStrings(0,2)
+        m = 1
+        printStrings(00,2)
+            m = 2
+            Base case reached m == n -> print 00
+        printStrings(01,2)
+            m = 2
+            Base case reached m == n -> print 01
+    printStrings(1,2)
+        m = 1
+        printStrings(10,2)
+            m = 2
+            Base case reached m == n -> print 10
+
+Program: generateParentheses.java
+input n is given. For example: 2
+print(0,0,2,""):
+    if(0<2)->print(1,0,2,"(")
+        print(1,0,2,"("):
+            if(1<2)->print(2,0,2,"((")
+            if(0<1)->print(1,1,2,"(()")
+
+Program: uniqueSubsets.java
+input arr is given and sorted.
+For Example: 1,1,2
+A blank HashSet of type ArrayList<Integer> is initialized.
+findSubsets is called by the main function.
+
+in the findSubsets function:
+findSubsets(0,arr,curr,subsets)
+digit = arr[i]-> digit = arr[0] = 1
+findSubsets(1, arr, <>,<>):
+    int digit = arr[1] = 1
+    findSubsets(2,arr,<>,<>):
+        int digit = arr[2] = 2
+        findSubsets(3,arr,<>,<>)
+            i == arr.length -> base case reached
+            subsets.add(new ArrayList<>(curr))
+        findSubsets(3,arr,<2>,[[]]):
+            base case reached
+            subsets.add(new Arraylist(<2>))
+            subsets = [[],[2]]
+    findSubsets(2,arr,<1>,[[],[2]]):
+        int digit = arr[2] = 1
+        findSubsets(3,arr,<1>,[[],[2]]):
+            base case reached
+            subsets.add(<1>)
+            subsets = [[],[2],[1]]
+Similarly we can get all the elements
+
+Program: Combinations.java
+Input array is given: 2,3,6,7
+input target is: 7
+findCombinations(0,arr,target,blank ans,blank ds)
+    if(arr[0]=2<=7)
+        ds.add(2)
+        findCombinations(0,arr,7-2=5,blank ans,<2>):
+            if(2<=5)
+            ds.add(2)
+            findCombinations(0,arr,5-2=3,blank ans,<2,2>):
+                if(2<=3):
+                ds.add(2)
+                findCom(0,arr,3-2=1,blank ans,<2,2,2>):
+                    if(2<=1):
+                    findcombi(1,arr,1,blank ans,<2,2,2>):
+                        if(3<=1):
+                        findCombin(2,arr,1,blank ans,<2,2,2>):
+                            if(6<=1):
+                            goes on till the end of the array
+if no solutions then it backtracks one element at a time and remove that element from the ds.
