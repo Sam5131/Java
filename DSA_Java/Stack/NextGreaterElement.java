@@ -22,7 +22,7 @@ public class NextGreaterElement {
         return res;
     }
     public static void main(String[] args) {
-        int[]arr = {1,2,3,3,1,6,2,8,1};
+        int[]arr = {1,2,3,3};
         int[]result = nextGreaterElement(arr);
         for(int ele: arr){
             System.out.print(ele+" ");
