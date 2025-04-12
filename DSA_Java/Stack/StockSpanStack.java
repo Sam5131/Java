@@ -1,27 +1,26 @@
-import java.util.*;
+import java.security.PublicKey;
+import java.util.Stack;
 
-public class StockSpanStack {
-    public static int[] StockSpan(int[] price, int n) {
-        Stack<Integer> st = new Stack<>();
-        int[] arr = new int[n];
-        st.push(0);
-        for (int i = 0; i < n; i++) {
-            while (!st.isEmpty() && price[i] >= price[st.peek()]) {
-                st.pop();
-            }
-            if (st.isEmpty())
-                arr[i] = i + 1;
-            else
-                arr[i] = i - st.peek();
-            st.push(i);
-        }
-        return arr;
+class Pair{
+    int price;
+    int span;
+
+    public Pair(int price,int span){
+        this.price = price;
+        this.span = span;
     }
-
-    public static void main(String[] args) {
-        int[] arr = { 100, 80, 60, 70, 75, 85 };
-        StockSpan(arr, 5);
-        for (int i : arr)
-            System.out.println(arr[i]);
+}
+class StockSpanStack{
+    Stack<Pair> st;
+    public StockSpanStack(){
+        st = new Stack<>();
+    }
+    public int next(int price){
+        int span = 1;
+        while(!st.isEmpty()&&st.peek().price<=price){
+            span = span + st.pop().span;
+        }
+        st.push(new Pair(price,span));
+        return span;
     }
 }
