@@ -1,0 +1,51 @@
+Program: Remove Consecutive Subsequences
+input array is given.
+RemoveConsecutiveSubsequences function is called.
+empty stack st is initialised.
+Condition to push element in the stack:
+    1. if stack is empty push the element.
+    2. if the top element of the stack is not equal to the current element in the array.
+Condition to pop element from the stack:
+    1. if current element of the array is equal to the element in the top of the stack.
+        ***And the current element is not equal to the upcoming element in the array.***
+res array is taking input from reverse as the st.pop given the topmost element first.
+For example: {1,2,2,3}
+1. empty stack st is initialized.
+2. if stack is empty -> push(arr[i])->push(1)
+3. if stack.peek!=arr[i]-> push(arr[i])->push(2)
+4. if arr[i] == st.peek()-> if(i==n-1 or arr[i]!=arr[i+1])-> pop(2)
+5. if st.peek()!=arr[i]->push(3)
+res: {1,3}
+
+Program: NextGreaterElement.java
+input arr is given.
+the problem is to print the next greater element for a particular element of the array.
+in the function nextGreaterELement,
+1. empty stack st is initialized and a empty res array of size n i.e. original arr size is initialized.
+2. the last element of the res array corresponds to the last element of the input array as its the last number therefore no next greater number exist of it hence res[n-1] = -1 and we push arr[n-1] i.e the last element in the stack
+3.the loop starts from the second last element towards the first element
+4. while the stack is not empty and the array element is greater than the topmost element of the stack. we pop the stack.
+5. if the stack is empty we do res[i] = -1. that means no element in the back is greater than the current element of the array.
+6. else we do res[i] = st.peek() that means the topmost element is greater than the current element of the array.
+7. we push arr[i] into the stack
+
+For example: we take {1,2,3,3}
+first we assign res[n-1] = res[3] = -1 and push 3 in the stack
+
+then in the loop i = n-2 = 2 second last element,
+while(!stack.isEmpty() && arr[i]>st.peek())->True&&3>3->True&&False. Condition false
+res[2] = 3. stack.push(arr[2])->3
+
+then in the i = 1,
+while(True&&arr[1]>3)->true&&false->condition false
+res[1] = 3 stack.push(arr[1])->2
+
+then in the i = 0,
+while(True&&arr[0]>2)->True&&false->condition false
+res[0] = 2 stack.push(arr[0])->1
+
+res = [2,3,3,-1]
+
+Program: StockSpanStack.java
+We create a customer stack to hold the price, span of the stock
+in the next funtion, we check that is if the stack is not empty and the topmost element's price is less t
