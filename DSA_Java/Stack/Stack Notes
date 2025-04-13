@@ -48,4 +48,6 @@ res = [2,3,3,-1]
 
 Program: StockSpanStack.java
 We create a customer stack to hold the price, span of the stock
-in the next funtion, we check that is if the stack is not empty and the topmost element's price is less t
+in the next function, we check that is if the stack is not empty and the topmost element's price is less than the price.
+1. if the stack is not empty and the st.peek() is less than the price. we increment the span by the span of the st.peek() element
+2. if the condition is not meet, then we push the price and span of the element into the stack.
