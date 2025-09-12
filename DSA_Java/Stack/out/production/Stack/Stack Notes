@@ -20,7 +20,7 @@ res: {1,3}
 Program: NextGreaterElement.java
 input arr is given.
 the problem is to print the next greater element for a particular element of the array.
-in the function nextGreaterELement,
+in the function nextGreaterElement,
 1. empty stack st is initialized and a empty res array of size n i.e. original arr size is initialized.
 2. the last element of the res array corresponds to the last element of the input array as its the last number therefore no next greater number exist of it hence res[n-1] = -1 and we push arr[n-1] i.e the last element in the stack
 3.the loop starts from the second last element towards the first element
@@ -48,4 +48,6 @@ res = [2,3,3,-1]
 
 Program: StockSpanStack.java
 We create a customer stack to hold the price, span of the stock
-in the next funtion, we check that is if the stack is not empty and the topmost element's price is less t
+in the next function, we check that is if the stack is not empty and the topmost element's price is less than the price.
+1. if the stack is not empty and the st.peek() is less than the price. we increment the span by the span of the st.peek() element
+2. if the condition is not meet, then we push the price and span of the element into the stack.
